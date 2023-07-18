@@ -8,7 +8,7 @@ namespace CRUDschoolDetails.Model
 {
    public class SchoolDetailsModel
    {
-            public int PrimaryKeyId { get; set; }
+            public int Id { get; set; }
             public string SchoolName { get; set; }
             public string OwnerName { get; set; }
             public string address { get; set; }

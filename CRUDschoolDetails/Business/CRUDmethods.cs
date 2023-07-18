@@ -67,7 +67,7 @@ namespace CRUDschoolDetails.Business
                 foreach (var loopData in SchoolDataSelect)
                 {
                     Console.WriteLine("");
-                    Console.WriteLine($"SchoolID --{loopData.PrimaryKeyId}   SchoolName --{loopData.SchoolName}    Owner --{ loopData.OwnerName}   Address --{ loopData.address}   Location --{ loopData.location}   Number of students --{ loopData.NoofStudents} ");
+                    Console.WriteLine($"SchoolID --{loopData.Id}   SchoolName --{loopData.SchoolName}    Owner --{ loopData.OwnerName}   Address --{ loopData.address}   Location --{ loopData.location}   Number of students --{ loopData.NoofStudents} ");
                     Console.WriteLine("");
                 }
 
