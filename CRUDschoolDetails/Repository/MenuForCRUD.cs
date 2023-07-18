@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CRUDschoolDetails.Model;
 using CRUDschoolDetails.Business;
 
-namespace  
+namespace CRUDschoolDetails.Repository
 {
     class MenuForCRUD
     {
