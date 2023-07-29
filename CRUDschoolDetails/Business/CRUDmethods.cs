@@ -10,7 +10,7 @@ using CRUDschoolDetails.Model;
 
 namespace CRUDschoolDetails.Business
 {
-    class CRUDmethods
+    public class CRUDmethods
     {
 
         public readonly string connectionString;
@@ -19,13 +19,13 @@ namespace CRUDschoolDetails.Business
         {
 
 
-            connectionString = @"Data source=DESKTOP-8VD1A1F\SQLEXPRESS;Initial catalog=StudentMark;User Id=sa;Password=Anaiyaan@123";
+            connectionString = @"Data source=DESKTOP-8VD1A1F\SQLEXPRESS;Initial catalog=SchoolDetails;User Id=sa;Password=Anaiyaan@123";
         }
         // Crud operation with Store procedure
 
         //Insert method
 
-        public void InsertSchoolDetails(SchoolDetailsModel de)
+        public void InsertSchoolDetailsCRUD(SchoolDetailsModel de)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace CRUDschoolDetails.Business
         }
 
         //Select methods
-        public List<SchoolDetailsModel> SelectSchoolDetails()
+        public List<SchoolDetailsModel> SelectSchoolDetailsCRUD()
 
         {
             try
@@ -61,18 +61,6 @@ namespace CRUDschoolDetails.Business
                 connection.Open();
                 SchoolDataSelect = connection.Query<SchoolDetailsModel>("exec selectschooldetails; ").ToList();
                 connection.Close();
-
-                
-
-                foreach (var loopData in SchoolDataSelect)
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine($"SchoolID --{loopData.Id}   SchoolName --{loopData.SchoolName}    Owner --{ loopData.OwnerName}   Address --{ loopData.address}   Location --{ loopData.location}   Number of students --{ loopData.NoofStudents} ");
-                    Console.WriteLine("");
-                }
-
-                /*Console.WriteLine(constrain);
-                Console.ReadLine();*/
 
                 return SchoolDataSelect;
 
@@ -86,6 +74,83 @@ namespace CRUDschoolDetails.Business
 
         }
 
+
+        //Select with id
+        public List<SchoolDetailsModel> SelectSchoolDetailsCRUD(int Id)
+
+        {
+            try
+            {
+                List<SchoolDetailsModel> SchoolDataSelect = new List<SchoolDetailsModel>();
+
+                var connection = new SqlConnection(connectionString);
+                connection.Open();
+                SchoolDataSelect = connection.Query<SchoolDetailsModel>($" exec selectschooldetailsWithId {Id}; ").ToList();
+                connection.Close();
+
+                return SchoolDataSelect;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+
+        }
+
+
+
+
+
+        //ubdate sp
+        public void UbdateSchoolDetailsCRUD(SchoolDetailsModel de)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+
+                con.Open();
+                con.Execute($"exec ubdateschooldetails '{de.SchoolName}','{de.NoofStudents}' ");
+
+                con.Close();
+            }
+            catch (SqlException ee)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public void DeleteSchoolDetailsCRUD(string del)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+
+                /* Console.WriteLine("enter a firstName  to delete record");
+                 string del = Console.ReadLine();*/
+                con.Open();
+                con.Execute($"exec deleteschooldetails '{del}'");
+
+
+                con.Close();
+            }
+            catch (SqlException e)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
 
     }
 }

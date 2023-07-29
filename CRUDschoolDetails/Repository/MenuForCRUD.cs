@@ -55,12 +55,12 @@ namespace CRUDschoolDetails.Repository
                     case 1:
 
                         var PassDet = MenuObj.GetSchoolDetails();
-                        crudSchoolDetails.InsertSchoolDetails(PassDet);
+                       // crudSchoolDetails.InsertSchoolDetails(PassDet);
 
                         break;
                     case 2:
 
-                        crudSchoolDetails.SelectSchoolDetails();
+                       // crudSchoolDetails.SelectSchoolDetails();
 
                         break;
 
