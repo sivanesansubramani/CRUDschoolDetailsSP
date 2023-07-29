@@ -35,10 +35,10 @@ namespace SchoolDetailsApiCRUD.Controllers
         }
 
         // GET api/<SchooldetailsController>/5
-        [HttpGet("{ID}")]
-        public IEnumerable<SchoolDetailsModel> Get(String SchoolName)
+        [HttpGet("{id}")]
+        public IEnumerable<SchoolDetailsModel> Get(int id)
         {
-            return objApiCrud.SelectSchoolDetailsCRUD(ID);
+            return objApiCrud.SelectSchoolDetailsCRUD(id);
         }
 
         // POST api/<SchooldetailsController>
@@ -50,10 +50,10 @@ namespace SchoolDetailsApiCRUD.Controllers
         }
 
         // PUT api/<SchooldetailsController>/5
-        [HttpPut("{SchoolName}")]
-        public void Put(string SchoolName, [FromBody] SchoolDetailsModel value)
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] SchoolDetailsModel value)
         {
-            value.SchoolName = SchoolName;
+            value.Id = id;
             objApiCrud.UbdateSchoolDetailsCRUD(value);
         }
 

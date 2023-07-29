@@ -70,25 +70,23 @@ namespace CRUDschoolDetails.Business
                 throw ex;
             }
 
-
-
         }
 
 
         //Select with id
-        public List<SchoolDetailsModel> SelectSchoolDetailsCRUD(int Id)
+        public List<SchoolDetailsModel> SelectSchoolDetailsCRUD(int id)
 
         {
             try
             {
-                List<SchoolDetailsModel> SchoolDataSelect = new List<SchoolDetailsModel>();
+                List<SchoolDetailsModel> schoolDataSelect = new List<SchoolDetailsModel>();
 
                 var connection = new SqlConnection(connectionString);
                 connection.Open();
-                SchoolDataSelect = connection.Query<SchoolDetailsModel>($" exec selectschooldetailsWithId {Id}; ").ToList();
+                schoolDataSelect = connection.Query<SchoolDetailsModel>($" exec selectschooldetailsWithId {id}; ").ToList();
                 connection.Close();
 
-                return SchoolDataSelect;
+                return schoolDataSelect;
 
             }
             catch (Exception ex)
@@ -112,7 +110,7 @@ namespace CRUDschoolDetails.Business
                 SqlConnection con = new SqlConnection(connectionString);
 
                 con.Open();
-                con.Execute($"exec ubdateschooldetails '{de.SchoolName}','{de.NoofStudents}' ");
+                con.Execute($"exec ubdateschooldetails {de.Id},'{de.SchoolName}','{de.OwnerName}','{de.address}','{de.location}','{de.NoofStudents}'");
 
                 con.Close();
             }
@@ -133,8 +131,7 @@ namespace CRUDschoolDetails.Business
             {
                 SqlConnection con = new SqlConnection(connectionString);
 
-                /* Console.WriteLine("enter a firstName  to delete record");
-                 string del = Console.ReadLine();*/
+               
                 con.Open();
                 con.Execute($"exec deleteschooldetails '{del}'");
 

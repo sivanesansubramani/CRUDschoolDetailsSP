@@ -1,6 +1,6 @@
 Create table SchoolDetailsCRUD
 (
-id int primary key identity(1,1),
+Id int primary key identity(1,1),
 SchoolName varchar(500) not null,
 Ownername nvarchar(500) not null,
 Address nvarchar(100)  not null,
@@ -35,30 +35,30 @@ exec selectschooldetails
 
 
 -------select sp eith id
-alter procedure selectschooldetailsWithId(int @id)
+create procedure selectschooldetailsWithId(@ID int)
 as
 begin
 
-  Select * from SchoolDetailsCRUD where id = @id
+  Select * from SchoolDetailsCRUD where id =@ID
 
 end
 
-exec selectschooldetailsWithId 'kvm'
+exec selectschooldetailsWithId 5
 
 
 
 --ubdate
 --exctra parameters @ownername nvarchar(400),@address nvarchar(400),@location nvarchar(400),
 
-alter procedure ubdateschooldetails (@schoolname nvarchar(400),@noofstudents nvarchar(400))
+alter procedure ubdateschooldetails (@ID int,@Schoolname nvarchar(500),@ownername nvarchar(500),@address nvarchar(100),@location nvarchar(100),@NoOfstudents nvarchar(100))
 as
 begin
 
-  update SchoolDetailsCRUD set NoOfStudents =@noofstudents  where SchoolName=@schoolname
+  update SchoolDetailsCRUD set SchoolName =@Schoolname, Ownername=@ownername,Address= @address, Location=@location,NoOfStudents=@NoOfstudents where id =@ID
 
 end
 
-exec ubdateschooldetails 'kvm','1500'
+exec ubdateschooldetails 5,'kvsssm','kuppsssusamym','palanim','nearm mmurugan temple','400'
 
 --delete
 create procedure deleteschooldetails(@schoolname nvarchar(400))
