@@ -58,11 +58,11 @@ namespace SchoolDetailsApiCRUD.Controllers
         }
 
         // DELETE api/<SchooldetailsController>/5
-        [HttpDelete("{SchoolName}")]
-        public void Delete(string SchoolName)
+        [HttpDelete("{Id}")]
+        public void Delete(int Id)
         {
 
-            objApiCrud.DeleteSchoolDetailsCRUD(SchoolName);
+            objApiCrud.DeleteSchoolDetailsCRUD(Id);
         }
     }
 }

@@ -125,7 +125,7 @@ namespace CRUDschoolDetails.Business
 
         }
 
-        public void DeleteSchoolDetailsCRUD(string del)
+        public void DeleteSchoolDetailsCRUD(int del)
         {
             try
             {

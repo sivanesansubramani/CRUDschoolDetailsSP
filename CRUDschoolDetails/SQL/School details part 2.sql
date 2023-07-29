@@ -1,6 +1,6 @@
 Create table SchoolDetailsCRUD
 (
-Id int primary key identity(1,1),
+id int primary key identity(1,1),
 SchoolName varchar(500) not null,
 Ownername nvarchar(500) not null,
 Address nvarchar(100)  not null,
@@ -61,15 +61,15 @@ end
 exec ubdateschooldetails 5,'kvsssm','kuppsssusamym','palanim','nearm mmurugan temple','400'
 
 --delete
-create procedure deleteschooldetails(@schoolname nvarchar(400))
+alter procedure deleteschooldetails(@id int)
 as
 begin
 
-  delete from SchoolDetailsCRUD where SchoolName =@schoolname
+  delete from SchoolDetailsCRUD where id =@id
 
 end
 
-exec deleteschooldetails 'kvm'
+exec deleteschooldetails 5
 
 
 
