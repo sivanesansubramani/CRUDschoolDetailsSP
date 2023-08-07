@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.33027.164
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUDschoolDetails", "CRUDschoolDetails\CRUDschoolDetails.csproj", "{1933BAAA-064C-4584-8213-9D15725F710F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolDetailsApiCRUD", "SchoolDetailsApiCRUD\SchoolDetailsApiCRUD.csproj", "{074582F4-F394-4B20-B4FF-CCCFEA967FA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolDetailsApiCRUD", "SchoolDetailsApiCRUD\SchoolDetailsApiCRUD.csproj", "{074582F4-F394-4B20-B4FF-CCCFEA967FA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDschoolDetailsMVC", "CRUDschoolDetailsMVC\CRUDschoolDetailsMVC.csproj", "{0BDDD502-5DEB-4F2B-8839-7F19DE8D630C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{074582F4-F394-4B20-B4FF-CCCFEA967FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{074582F4-F394-4B20-B4FF-CCCFEA967FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{074582F4-F394-4B20-B4FF-CCCFEA967FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BDDD502-5DEB-4F2B-8839-7F19DE8D630C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BDDD502-5DEB-4F2B-8839-7F19DE8D630C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BDDD502-5DEB-4F2B-8839-7F19DE8D630C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BDDD502-5DEB-4F2B-8839-7F19DE8D630C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

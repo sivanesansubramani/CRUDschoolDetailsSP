@@ -101,6 +101,28 @@ namespace CRUDschoolDetails.Business
 
 
 
+        //Details model for mvc 
+        public SchoolDetailsModel SelectMethodMVC(int Id)
+        {
+            try
+            {
+
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Open();
+                var res = connection.QueryFirst<SchoolDetailsModel>($" exec selectschooldetailsWithId {Id}; ");
+                connection.Close();
+
+                return res;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
 
         //ubdate sp
         public void UbdateSchoolDetailsCRUD(SchoolDetailsModel de)
